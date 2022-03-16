@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+semver = "==2.13.0"
+toml = "==0.10.2"
+black = "==22.1.0"
+tomlkit = "==0.10.0"
+
+[dev-packages]
+flake8 = "==4.0.1"
+flake8-unused-arguments = "==0.0.9"
+isort = "==5.10.1"
+mypy = "==0.941"
+
+[requires]
+python_version = ">=3.7.0"
