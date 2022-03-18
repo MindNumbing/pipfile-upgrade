@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass
 from typing import Optional
 
-from .errors import NeedsHumanAttention
+from pipfile_upgrade.errors import NeedsHumanAttention
 
 
 @dataclass
@@ -33,7 +33,7 @@ class Semver:
         return self.version
 
     @staticmethod
-    def semver_re() -> re.Pattern[str]:
+    def semver_re() -> re.Pattern:
         """
         Source: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
 

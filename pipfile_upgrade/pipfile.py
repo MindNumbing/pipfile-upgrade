@@ -4,9 +4,9 @@ from typing import List
 
 import requests
 
-from .dataclasses import Dependency, Semver
-from .errors import NeedsHumanAttention
-from .tomlfile import TOMLFile
+from pipfile_upgrade.dataclasses import Dependency, Semver
+from pipfile_upgrade.errors import NeedsHumanAttention
+from pipfile_upgrade.tomlfile import TOMLFile
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"

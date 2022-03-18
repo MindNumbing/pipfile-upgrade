@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from pathlib import Path
 
-from src.pipfile import Pipfile
+from pipfile_upgrade.pipfile import Pipfile
 
 
 def dir_path(input: str) -> Path:
@@ -14,7 +14,7 @@ def dir_path(input: str) -> Path:
 
 def main() -> None:
     argument_parser = ArgumentParser(
-        prog="pipfile-upgrade", usage="Upgrades your outdated pipfile packages"
+        prog="pipfile_upgrade", usage="Upgrades your outdated pipfile packages"
     )
 
     argument_parser.add_argument(
