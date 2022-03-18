@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pipfile-upgrade-mindnumbing",
-    version="0.0.1",
+    name="pipfile-upgrade",
+    version="0.1.0",
     author="MindNumbing",
     author_email="its.all@mindnumbing.work",
     description="Software for upgrading pipfile to latest pypi version",
@@ -16,11 +16,13 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/MindNumbing/pipfile-upgrade/issues",
     },
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
+    package_dir={"": "pipfile_upgrade"},
+    packages=setuptools.find_packages(where="pipfile_upgrade"),
     python_requires=">=3.7.0",
 )
