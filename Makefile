@@ -14,6 +14,9 @@ test: ## test the python program
 lint: ## lint the python program
 	black . && isort . && mypy --strict . && flake8 . && vulture .
 
+clean: ## removes builds and caches
+	rm -rf .mypy_cache build dist/ pipfile_upgrade/pipfile_upgrade.egg-info/
+
 help: ## show this help
 	@echo
 	@fgrep -h " ## " $(MAKEFILE_LIST) | fgrep -v fgrep | sed -Ee 's/([a-z.]*):[^#]*##(.*)/\1##\2/' | column -t -s "##"
