@@ -6,12 +6,15 @@ name = "pypi"
 [packages]
 black = "==22.1.0"
 tomlkit = "==0.10.0"
+packaging = "==21.3"
 
 [dev-packages]
 flake8 = "==4.0.1"
 flake8-unused-arguments = "==0.0.9"
 isort = "==5.10.1"
 mypy = "==0.941"
+vulture = "==2.3"
+pytest = "==7.1.1"
 
 [requires]
 python_version = "3.7"
