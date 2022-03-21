@@ -2,10 +2,7 @@ import logging
 from pathlib import Path
 from typing import List
 
-import requests
-
-from pipfile_upgrade.dataclasses import Dependency, Pipfile_Dependencies
-from pipfile_upgrade.errors import NeedsHumanAttention
+from pipfile_upgrade.dataclasses import Pipfile_Dependencies
 from pipfile_upgrade.tomlfile import TOMLFile
 
 logging.basicConfig(
@@ -17,6 +14,7 @@ class Pipfile:
     def __init__(self, dry_run: bool, directory: Path, ignored_packages: List[str]):
         self.pipfile_path: Path = directory / "Pipfile"
         self.toml_file: TOMLFile = TOMLFile(filepath=self.pipfile_path)
+        self.ignored_packages = ignored_packages
 
         self.pip_deps = Pipfile_Dependencies()
         self.pip_deps.load_toml_data(self.toml_file)
@@ -29,9 +27,15 @@ class Pipfile:
 
     def update_pipfile_dependencies(self) -> None:
         for dependency in self.pip_deps.package_dependencies():
-            self.toml_file.toml_data["packages"][dependency.package] = dependency.latest_version_with_constraints
+            if dependency.package not in self.ignored_packages:
+                self.toml_file.toml_data["packages"][
+                    dependency.package
+                ] = dependency.latest_version_with_constraints
         for dependency in self.pip_deps.dev_package_dependencies():
-            self.toml_file.toml_data["dev-packages"][dependency.package] = dependency.latest_version_with_constraints
+            if dependency.package not in self.ignored_packages:
+                self.toml_file.toml_data["dev-packages"][
+                    dependency.package
+                ] = dependency.latest_version_with_constraints
 
     def log_dependency_updates(self) -> None:
         for dependency in self.pip_deps.all_dependencies():

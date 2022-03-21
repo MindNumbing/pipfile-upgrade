@@ -2,7 +2,7 @@ from pipfile_upgrade.argument_parser import Parser
 from pipfile_upgrade.pipfile import Pipfile
 
 
-def main() -> None: 
+def main() -> None:
     options = Parser().parser.parse_args()
 
     Pipfile(

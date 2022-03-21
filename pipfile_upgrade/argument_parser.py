@@ -1,9 +1,9 @@
 from argparse import ArgumentParser
 from pathlib import Path
 
-class Parser:
 
-    def __init__(self):
+class Parser:
+    def __init__(self) -> None:
         self.parser = ArgumentParser(
             prog="pipfile_upgrade", usage="Upgrades your outdated pipfile packages"
         )
@@ -30,7 +30,8 @@ class Parser:
             nargs="*",
             help="list of packages to be ignored",
         )
-    
+
+    @staticmethod
     def dir_path(input: str) -> Path:
         path = Path(input)
         if path.is_dir():
