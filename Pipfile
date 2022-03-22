@@ -4,11 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-black = "==22.1.0"
 tomlkit = "==0.10.0"
 packaging = "==21.3"
+requests = "==2.27.1"
 
 [dev-packages]
+black = "==22.1.0"
 flake8 = "==4.0.1"
 flake8-unused-arguments = "==0.0.9"
 isort = "==5.10.1"
