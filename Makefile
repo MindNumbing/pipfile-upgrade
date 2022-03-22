@@ -14,8 +14,11 @@ test: ## test the python program
 lint: ## lint the python program
 	black . && isort . && mypy --strict . && flake8 . && vulture .
 
+build: ## build the program
+	python setup.py build sdist bdist_wheel
+
 clean: ## removes builds and caches
-	rm -rf .mypy_cache build dist/ pipfile_upgrade/pipfile_upgrade.egg-info/
+	rm -rf .mypy_cache build/ dist/ *pipfile_upgrade.egg-info*
 
 help: ## show this help
 	@echo
