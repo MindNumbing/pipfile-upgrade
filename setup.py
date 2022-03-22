@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pipfile_upgrade",
-    version="0.1.0",
+    version="0.0.2",
     author="MindNumbing",
     author_email="its.all@mindnumbing.work",
     description="Software for upgrading pipfile to latest pypi version",
@@ -22,7 +22,12 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "pipfile_upgrade"},
-    packages=setuptools.find_packages(where="pipfile_upgrade"),
+    packages=["pipfile_upgrade"],
     python_requires=">=3.7.0",
+    entry_points={"console_scripts": ["pipfile_upgrade=pipfile_upgrade.__main__:main"]},
+    install_requires=[
+        "tomlkit",
+        "packaging",
+        "requests",
+    ],
 )
