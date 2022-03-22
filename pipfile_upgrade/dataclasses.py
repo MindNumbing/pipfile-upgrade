@@ -14,7 +14,11 @@ class Dependency:
     current_version: str
 
     def __repr__(self) -> str:
-        return f"Package: {self.package} {'is not' if self.requires_update else 'is'} up to date. Current version: {self.current_version}. Latest_version: {self.latest_version_with_constraints}"
+        return (
+            f"Package: {self.package} {'is not' if self.requires_update else 'is'} up to date. "
+            f"Current version: {self.current_version}. "
+            f"Latest_version: {self.latest_version_with_constraints}"
+        )
 
     @property
     def latest_version(self) -> str:
