@@ -6,9 +6,7 @@ from pipfile_upgrade.errors import InvalidDirectoryError, MissingPipfileError
 
 class Parser:
     def __init__(self) -> None:
-        self.parser = ArgumentParser(
-            prog="pipfile_upgrade", usage="Upgrades your outdated pipfile packages"
-        )
+        self.parser = ArgumentParser(prog="pipfile_upgrade", usage="Upgrades your outdated pipfile packages")
 
         self.parser.add_argument(
             "--path",

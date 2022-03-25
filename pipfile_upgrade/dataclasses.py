@@ -29,16 +29,12 @@ class Dependency:
 
     @property
     def current_version_without_constraints(self) -> Union[LegacyVersion, Version]:
-        version_without_constraints = re.sub(
-            r"(?P<constraints>^[=<>~!]{0,3})", "", self.current_version
-        )
+        version_without_constraints = re.sub(r"(?P<constraints>^[=<>~!]{0,3})", "", self.current_version)
         return parse(version_without_constraints)
 
     @property
     def version_constraints(self) -> str:
-        parsed_constraints = re.search(
-            r"(?P<constraints>^[=<>~!]{0,3})", self.current_version
-        )
+        parsed_constraints = re.search(r"(?P<constraints>^[=<>~!]{0,3})", self.current_version)
         if parsed_constraints:
             return str(parsed_constraints.group())
         else:
@@ -63,9 +59,7 @@ class Pipfile_Dependencies:
             self.packages.append(Dependency(package=package, current_version=version))
 
         for package, version in toml_file.toml_data.get("dev-packages").items():
-            self.dev_packages.append(
-                Dependency(package=package, current_version=version)
-            )
+            self.dev_packages.append(Dependency(package=package, current_version=version))
 
     def all_dependencies(self) -> Generator[Dependency, None, None]:
         for dependency in self.packages + self.dev_packages:

@@ -5,9 +5,7 @@ from typing import List
 from pipfile_upgrade.dataclasses import Pipfile_Dependencies
 from pipfile_upgrade.tomlfile import TOMLFile
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
 class Pipfile:
@@ -28,9 +26,7 @@ class Pipfile:
     def update_pipfile_dependencies(self) -> None:
         for dependency in self.pip_deps.package_dependencies():
             if dependency.package not in self.ignored_packages:
-                self.toml_file.toml_data["packages"][
-                    dependency.package
-                ] = dependency.latest_version_with_constraints
+                self.toml_file.toml_data["packages"][dependency.package] = dependency.latest_version_with_constraints
         for dependency in self.pip_deps.dev_package_dependencies():
             if dependency.package not in self.ignored_packages:
                 self.toml_file.toml_data["dev-packages"][
