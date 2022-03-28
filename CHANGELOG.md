@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Changed mypy to not use --strict
+- Renamed test/ -> tests/
 
 ## [0.0.2] - 2022-03-22
 ### Added
