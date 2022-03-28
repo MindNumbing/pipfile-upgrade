@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Added CONTRIBUTING.md for contributer guidelines
+- Added types-requests to pipfile
 
 ### Changed
 - Changed mypy to not use --strict
