@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added CONTRIBUTING.md for contributer guidelines
 
+### Changed
+- Changed mypy to not use --strict
+
 ## [0.0.2] - 2022-03-22
 ### Added
 - Created CHANGELOG to record changes between versions

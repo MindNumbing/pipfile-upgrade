@@ -12,7 +12,7 @@ test: ## test the python program
 	python -m pytest
 
 lint: ## lint the python program
-	black . && isort . && mypy --strict . && flake8 . && vulture .
+	black . && isort . && mypy . && flake8 . && vulture .
 
 build: ## build the program
 	python setup.py build sdist bdist_wheel
