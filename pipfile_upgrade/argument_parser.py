@@ -30,6 +30,11 @@ class Parser:
             nargs="*",
             help="list of packages to be ignored",
         )
+        command_group = self.parser.add_mutually_exclusive_group()
+        command_group.add_argument(
+            "-required", dest="only_required", help="only upgrade required packages", action="store_true"
+        )
+        command_group.add_argument("-dev", dest="only_dev", help="only upgrade dev packages", action="store_true")
 
     @staticmethod
     def dir_path(input: str) -> Path:

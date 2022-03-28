@@ -17,7 +17,7 @@ class Dependency:
         return (
             f"Package: {self.package} {'is not' if self.requires_update else 'is'} up to date. "
             f"Current version: {self.current_version}. "
-            f"Latest_version: {self.latest_version_with_constraints}"
+            f"Latest_version: {self.latest_version_with_constraint}"
         )
 
     @property
@@ -28,25 +28,25 @@ class Dependency:
         return str(json_response["info"]["version"])
 
     @property
-    def current_version_without_constraints(self) -> Union[LegacyVersion, Version]:
-        version_without_constraints = re.sub(r"(?P<constraints>^[=<>~!]{0,3})", "", self.current_version)
-        return parse(version_without_constraints)
+    def current_version_without_constraint(self) -> Union[LegacyVersion, Version]:
+        version_without_constraint = re.sub(r"(?P<constraint>^[=<>~!]{0,3})", "", self.current_version)
+        return parse(version_without_constraint)
 
     @property
-    def version_constraints(self) -> str:
-        parsed_constraints = re.search(r"(?P<constraints>^[=<>~!]{0,3})", self.current_version)
-        if parsed_constraints:
-            return str(parsed_constraints.group())
+    def version_constraint(self) -> str:
+        parsed_constraint = re.search(r"(?P<constraint>^[=<>~!]{0,3})", self.current_version)
+        if parsed_constraint:
+            return str(parsed_constraint.group())
         else:
             return ""
 
     @property
-    def latest_version_with_constraints(self) -> str:
-        return f"{self.version_constraints}{self.latest_version}"
+    def latest_version_with_constraint(self) -> str:
+        return f"{self.version_constraint}{self.latest_version}"
 
     @property
     def requires_update(self) -> bool:
-        return self.current_version_without_constraints < parse(self.latest_version)
+        return self.current_version_without_constraint < parse(self.latest_version)
 
 
 @dataclass
