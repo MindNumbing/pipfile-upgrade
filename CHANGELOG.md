@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed mypy to not use --strict.
 - Renamed test/ -> tests/.
 - Renamed instances of *constraints -> *constraint
+- Updated readme with more documentation with regards to running / linting the project.
 
 ## [0.0.2] - 2022-03-22
 ### Added
